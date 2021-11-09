@@ -1,5 +1,5 @@
-import { Validator, ValidState } from './constant';
-import { notEmptyValidator } from './validators/notEmptyValidator';
+import { Validator, ValidState } from './constant.js';
+import { notEmptyValidator } from './validators/notEmptyValidator.js';
 
 const validatorMap = { [Validator.NotEmpty]: notEmptyValidator };
 

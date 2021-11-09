@@ -1,4 +1,4 @@
-import { getValidator } from './getValidator';
+import { getValidator } from './getValidator.js';
 
 function mergeState(propertyState1, propertyState2) {
   if (!propertyState1) {

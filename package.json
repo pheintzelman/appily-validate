@@ -1,6 +1,6 @@
 {
   "name": "appily-validate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Validate a model based on rules",
   "main": "index.js",
   "dependencies": {},

@@ -1,5 +1,5 @@
-import { Validator } from '../src/constant';
-import { validate } from '../src/validate';
+import { Validator } from '../src/constant.js';
+import { validate } from '../src/validate.js';
 
 describe('notEmpty', () => {
   test('should by valid for non empty property', () => {
