@@ -14,7 +14,7 @@ $npm install appily-validate
 
 ## How to use
 
-appily-validate exports two things validate Validator
+appily-validate exports two things validate and Validator
 
 ### Validator
 
