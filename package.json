@@ -1,0 +1,38 @@
+{
+  "name": "appily-validate",
+  "version": "0.1.1",
+  "description": "Validate a model based on rules",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^27.3.1"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-node",
+    "transform": {},
+    "testMatch": [
+      "**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/*.test.js",
+      "!**/tests/**"
+    ],
+    "coverageDirectory": "./tests/coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pheintzelman/appily-validate"
+  },
+  "keywords": [
+    "appily",
+    "validate",
+    "validation"
+  ],
+  "author": "Paul Heintzelman",
+  "license": "MIT"
+}
