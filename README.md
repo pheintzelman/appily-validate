@@ -8,6 +8,7 @@ Built for appily an application generator but can be used by any project to vali
 - No dependencies.
 - Supports JSON rules.
 - Full model validation allows complex rules.
+- Supports internationalization (i18n).
 
 ## Getting started
 
