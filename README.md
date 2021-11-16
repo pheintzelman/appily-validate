@@ -7,6 +7,7 @@ Built for appily an application generator but can be used by any project to vali
 - Designed to be used in front and backend code.
 - No dependencies.
 - Supports JSON rules.
+- Full model validation allows complex rules.
 
 ## Getting started
 
