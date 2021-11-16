@@ -90,14 +90,14 @@ const rules = [
 
 addValidator can be used to add custom validators
 
-addValidator takes a validtor function with this signature
+addValidator takes a validator function with this signature
 
 { property, value, rule, model } => Boolean
 
-Custom validator are global and can be resused throughout your app
+Custom validators are global and can be resused throughout your app
 
 ```js
-import addValidator from 'appily-validate'
+import {addValidator, validate} from 'appily-validate'
 
 //Make your custom validator
 function eggStyleValidator({ value }) {
