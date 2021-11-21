@@ -18,26 +18,6 @@ $npm install appily-validate
 
 ## How to use
 
-appily-validate exports three things Validator, validate and addValidator
-
-## Validator
-
-is a constants list of all supported validators
-
-```js
-import {Validator} from 'appily-validate';
-
-const rules = [{type: Validator.NotEmpty...}]
-```
-
-List of supported validators
-
-```js
-{ NotEmpty: 'NotEmpty', RegEx: 'RegEx' };
-```
-
-## validate
-
 validates a javascript object given a set of rules
 
 ```js
@@ -59,6 +39,15 @@ results = {
 }
 */
 ```
+
+Validators:
+
+- [NotEmpty](#notempty)
+- [RegEx](#regex)
+- [Comparison](#comparison)
+- [Custom](#custom-validators)
+
+## Validators
 
 ### NotEmpty
 
@@ -84,9 +73,36 @@ const rules = [
 
 <i>Message can be a string, object, code or i18n key </i>
 
+### Comparison (=, <, <=, >=, >, !=)
+
+Compares a property to another property or constant value
+
+```js
+const rules = const rules = [
+  {
+    type: Validator.Comparison,
+    operator: '==',
+    property: 'confirmPassword',
+    compareTo: 'password',
+    message: 'Must match password'
+  },
+  {
+    type: Validator.Comparison,
+    op: '<',
+    property: 'weight',
+    value: 250,
+    message: 'must be less than 250'
+  }
+];
+```
+
+Supported operators are: =, <, <=, >=, >, !=
+
+<i>Message can be a string, object, code or i18n key </i>
+
 ### More validators are coming soon
 
-## addValidator
+## Custom Validators
 
 addValidator can be used to add custom validators
 
@@ -130,7 +146,6 @@ validateOrder(order) {
 ## TODO
 
 - Add more validators
-  - Comparison (=, <, <=, >=, >, !=)
   - Length
   - Range
   - DateRange
@@ -141,6 +156,7 @@ validateOrder(order) {
   - Max
   - Object
   - Array
+  - Contains
 - Common validators
   - phone
   - email

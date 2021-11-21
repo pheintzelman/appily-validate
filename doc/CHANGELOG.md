@@ -1,3 +1,7 @@
+v. 0.3.0
+
+- Comparison Validator
+
 v. 0.2.0
 
 - RegEx Validator

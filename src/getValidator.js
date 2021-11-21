@@ -1,10 +1,12 @@
 import { Validator } from './constant.js';
+import { comparisonValidator } from './validators/comparisonValidator.js';
 import { notEmptyValidator } from './validators/notEmptyValidator.js';
 import { regExValidator } from './validators/regExValidator.js';
 
 const validatorMap = {
   [Validator.NotEmpty]: notEmptyValidator,
-  [Validator.RegEx]: regExValidator
+  [Validator.RegEx]: regExValidator,
+  [Validator.Comparison]: comparisonValidator
 };
 
 export function addValidator(name, validator) {
