@@ -269,9 +269,6 @@ validateOrder(order) {
   - Length
   - Range
   - DateRange
-  - Not
-  - And
-  - Or
   - Min
   - Max
   - Object
