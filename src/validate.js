@@ -11,12 +11,20 @@ function mergeState(propertyState1, propertyState2) {
   };
 }
 
-function validateRule({ rule, model }) {
-  const { property, message } = rule;
+export function isValid(rule, model) {
+  const { property } = rule;
   const value = model[property];
 
   const validator = getValidator(rule);
   const valid = validator({ property, value, rule, model });
+
+  return valid;
+}
+
+function validateRule({ rule, model }) {
+  const { property, message } = rule;
+
+  const valid = isValid(rule, model);
   const messages = valid || message === undefined ? [] : [message];
 
   return [property, { valid, messages }];

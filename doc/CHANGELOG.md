@@ -1,3 +1,11 @@
+v. 0.4.0
+
+- Logig Validators
+  - And
+  - Or
+  - Not
+  - Condition
+
 v. 0.3.0
 
 - Comparison Validator
