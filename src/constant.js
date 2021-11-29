@@ -8,9 +8,13 @@ export const ComparisonOperator = {
 };
 
 export const Validator = {
+  And: 'And',
+  Comparison: 'Comparison',
+  Condition: 'Condition',
+  Not: 'Not',
   NotEmpty: 'NotEmpty',
-  RegEx: 'RegEx',
-  Comparison: 'Comparison'
+  Or: 'Or',
+  RegEx: 'RegEx'
 };
 
 export const ValidState = { valid: true, messages: [] };

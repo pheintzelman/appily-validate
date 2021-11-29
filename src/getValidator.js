@@ -1,12 +1,20 @@
 import { Validator } from './constant.js';
+import { andValidator } from './validators/andValidator.js';
 import { comparisonValidator } from './validators/comparisonValidator.js';
+import { conditionValidator } from './validators/conditionValidator.js';
+import { notValidator } from './validators/notValidator.js';
 import { notEmptyValidator } from './validators/notEmptyValidator.js';
+import { orValidator } from './validators/orValidator.js';
 import { regExValidator } from './validators/regExValidator.js';
 
 const validatorMap = {
+  [Validator.And]: andValidator,
+  [Validator.Comparison]: comparisonValidator,
+  [Validator.Condition]: conditionValidator,
+  [Validator.Not]: notValidator,
   [Validator.NotEmpty]: notEmptyValidator,
   [Validator.RegEx]: regExValidator,
-  [Validator.Comparison]: comparisonValidator
+  [Validator.Or]: orValidator
 };
 
 export function addValidator(name, validator) {

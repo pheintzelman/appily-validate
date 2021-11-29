@@ -45,6 +45,10 @@ Validators:
 - [NotEmpty](#notempty)
 - [RegEx](#regex)
 - [Comparison](#comparison)
+- [And](#and)
+- [Or](#or)
+- [Not](#not)
+- [Condition](#condition)
 - [Custom](#custom-validators)
 
 ## Validators
@@ -100,6 +104,122 @@ Supported operators are: =, <, <=, >=, >, !=
 
 <i>Message can be a string, object, code or i18n key </i>
 
+### And
+
+Is true if all rules are true.
+
+```js
+const rules = [
+  {
+    type: Validator.And,
+    property: 'age',
+    message: 'must be between 0 and 120',
+    rules: [
+      { type: Validator.Comparison, op: '>', property: 'age', value: 0 },
+      { type: Validator.Comparison, op: '<', property: 'age', value: 120 }
+    ]
+  }
+];
+```
+
+- rules: can use any validator
+  - messages in inner rules are ignored
+- message: can be a string, object, code or i18n key
+
+### Or
+
+Is true if one of the rules is true.
+
+```js
+const rules = [
+  {
+    type: Validator.Or,
+    property: 'order',
+    message: 'must be chicken, beef or veggie',
+    rules: [
+      {
+        type: Validator.Comparison,
+        op: '==',
+        property: 'order',
+        value: 'chicken'
+      },
+      {
+        type: Validator.Comparison,
+        op: '==',
+        property: 'order',
+        value: 'beef'
+      },
+      {
+        type: Validator.Comparison,
+        op: '==',
+        property: 'order',
+        value: 'veggie'
+      }
+    ]
+  }
+];
+```
+
+- rules: can use any validator
+  - messages in inner rules are ignored
+- message: can be a string, object, code or i18n key
+
+### Not
+
+Is true if rule is false.
+
+```js
+const rules = [
+  {
+    type: Validator.Not,
+    property: 'name',
+    message: 'must not be Steve',
+    rule: {
+      type: Validator.Comparison,
+      op: '==',
+      property: 'name',
+      value: 'Steve'
+    }
+  }
+];
+```
+
+- rule: can use any validator
+  - the message in the inner rule is ignored
+- message: can be a string, object, code or i18n key
+
+### Condition
+
+Is the results of then if the condition is true
+
+```js
+const rules = [
+  {
+    type: Validator.Condition,
+    property: 'hasCarInsurance',
+    message: 'required',
+    condition: {
+      type: Validator.Comparison,
+      op: '==',
+      property: 'ownsCar',
+      value: true
+    },
+    then: {
+      type: Validator.Comparison,
+      op: '==',
+      property: 'hasCarInsurance',
+      value: true
+    }
+  }
+];
+```
+
+- condition: can use any validator
+  - the message in the inner rule is ignored
+- then: can use any validator
+  - the message in the inner rule is ignored
+- message: can be a string, object, code or i18n key
+
 ### More validators are coming soon
 
 ## Custom Validators
@@ -149,17 +269,15 @@ validateOrder(order) {
   - Length
   - Range
   - DateRange
-  - Not
-  - And
-  - Or
   - Min
   - Max
   - Object
   - Array
   - Contains
-- Common validators
+- Common regex
   - phone
   - email
   - zip
 - Throw error on unfound validator
 - Add multi rule tests
+- Add global rules
