@@ -1,12 +1,12 @@
 import { isValid } from '../validate';
 
 export function notValidator({ rule, model }) {
-  const { rule: subRule } = rule;
+  const { rule: innerRule } = rule;
 
-  if (!subRule) {
+  if (!innerRule) {
     return true;
   }
 
-  const valid = isValid(subRule, model);
+  const valid = isValid(innerRule, model);
   return !valid;
 }
