@@ -1,4 +1,4 @@
-import { isValid } from '../validate';
+import { isValid } from '../../validate';
 
 export function notValidator({ rule, model }) {
   const { rule: innerRule } = rule;

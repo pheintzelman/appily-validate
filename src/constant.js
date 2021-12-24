@@ -11,6 +11,7 @@ export const Validator = {
   And: 'And',
   Comparison: 'Comparison',
   Condition: 'Condition',
+  Length: 'Length',
   Not: 'Not',
   NotEmpty: 'NotEmpty',
   Or: 'Or',
