@@ -1,5 +1,5 @@
-import { isEmptyArray } from '../util';
-import { isValid } from '../validate';
+import { isEmptyArray } from '../../util';
+import { isValid } from '../../validate';
 
 export function orValidator({ rule, model }) {
   const { rules } = rule;

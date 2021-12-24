@@ -1,5 +1,5 @@
-import { getValidator } from '../getValidator';
-import { isValid } from '../validate';
+import { getValidator } from '../../getValidator';
+import { isValid } from '../../validate';
 import { notValidator } from './notValidator';
 
 /**

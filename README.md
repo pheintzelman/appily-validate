@@ -4,11 +4,12 @@ Validate a model based on rules.
 
 Built for appily an application generator but can be used by any project to validate forms or other data.
 
-- Designed to be used in front and backend code.
-- No dependencies.
-- Supports JSON rules.
-- Full model validation allows complex rules.
-- Supports internationalization (i18n).
+- Designed to be used in front and backend code
+- No dependencies
+- Supports JSON rules
+- Full model validation allows complex rules
+- Supports condtional validation
+- Supports internationalization (i18n)
 
 ## Getting started
 
@@ -51,9 +52,7 @@ Validators:
 - [Condition](#condition)
 - [Custom](#custom-validators)
 
-## Validators
-
-### NotEmpty
+## NotEmpty
 
 Checks if a property on the given object is not empty
 
@@ -77,12 +76,14 @@ const rules = [
 
 <i>Message can be a string, object, code or i18n key </i>
 
-### Comparison (=, <, <=, >=, >, !=)
+---
+
+## Comparison (=, <, <=, >=, >, !=)
 
 Compares a property to another property or constant value
 
 ```js
-const rules = const rules = [
+const rules = [
   {
     type: Validator.Comparison,
     operator: '==',
@@ -104,7 +105,36 @@ Supported operators are: =, <, <=, >=, >, !=
 
 <i>Message can be a string, object, code or i18n key </i>
 
-### And
+---
+
+## Length
+
+Checks the length of a property. Can use min, max and is.
+Can just set min or max if there is only one boundry.
+
+```js
+const rules = [
+  {
+    type: Validator.Length,
+    property: 'zip',
+    is: 5,
+    message: 'Zip must be 5 characters'
+  },
+  {
+    type: Validator.Length,
+    property: 'name',
+    min: 2,
+    max: 100,
+    message: 'must 2-100 characters'
+  }
+];
+```
+
+<i>Message can be a string, object, code or i18n key </i>
+
+---
+
+## And
 
 Is true if all rules are true.
 
@@ -126,7 +156,9 @@ const rules = [
   - messages in inner rules are ignored
 - message: can be a string, object, code or i18n key
 
-### Or
+---
+
+## Or
 
 Is true if one of the rules is true.
 
@@ -164,7 +196,9 @@ const rules = [
   - messages in inner rules are ignored
 - message: can be a string, object, code or i18n key
 
-### Not
+---
+
+## Not
 
 Is true if rule is false.
 
@@ -188,7 +222,9 @@ const rules = [
   - the message in the inner rule is ignored
 - message: can be a string, object, code or i18n key
 
-### Condition
+---
+
+## Condition
 
 Is the results of then if the condition is true
 
@@ -220,7 +256,11 @@ const rules = [
   - the message in the inner rule is ignored
 - message: can be a string, object, code or i18n key
 
-### More validators are coming soon
+---
+
+<b>More validators are coming soon</b>
+
+---
 
 ## Custom Validators
 
@@ -263,10 +303,11 @@ validateOrder(order) {
 }
 ```
 
+---
+
 ## TODO
 
 - Add more validators
-  - Length
   - Range
   - DateRange
   - Min

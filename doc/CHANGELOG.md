@@ -1,3 +1,7 @@
+v. 0.5.0
+
+- Length Validator
+
 v. 0.4.0
 
 - Logic Validators

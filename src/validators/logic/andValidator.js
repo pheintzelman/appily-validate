@@ -1,4 +1,4 @@
-import { isValid } from '../validate';
+import { isValid } from '../../validate';
 
 export function andValidator({ rule, model }) {
   const { rules } = rule;
